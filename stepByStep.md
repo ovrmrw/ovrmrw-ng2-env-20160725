@@ -123,3 +123,12 @@ $ tsc --init
 configフォルダに色々作る
 
 webpack.config.js, webpack.config.production.js作る
+
+
+.vscodeフォルダ作る
+
+```json:.vscode/settings.json
+{
+  "typescript.tsdk": "./node_modules/typescript/lib"
+}
+```
