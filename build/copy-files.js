@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 
 // 一時フォルダを削除する。
-fs.removeSync('./.dest*');
+fs.removeSync('./.dest');
 fs.removeSync('./.awcache');
 
 // publicフォルダにあるファイルを.destフォルダにコピーする。

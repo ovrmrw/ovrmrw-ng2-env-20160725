@@ -10,17 +10,18 @@ import { AppComponent } from '../../src/app/app.component';
 import { HeroService } from '../../src/webapi/hero.service';
 import { appRouterProviders } from '../../src/app/app.routes';
 
-import { ActivatedRoute, Router, Event } from '@angular/router';
-import { LocationStrategy, APP_BASE_HREF } from '@angular/common';
-import { SpyLocation } from '@angular/common/testing';
+import { Directive } from '@angular/core'
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
+
+class Mock { }
 class MockRouter {
   createUrlTree() { }
-  navigateByUrl() { }
-  navigate() { }
 }
-class Mock { }
-class MockHeroService { }
+
+@Directive({ selector: '[routerLinkActive]' })
+class MockRouterLinkActive { }
 
 
 describe('TEST: App Component', () => {
@@ -33,7 +34,6 @@ describe('TEST: App Component', () => {
       { provide: APP_BASE_HREF, useValue: '/' }, // must be second
       { provide: ActivatedRoute, useClass: Mock },
       { provide: Router, useClass: MockRouter },
-      // { provide: LocationStrategy, useClass: SpyLocation },
     ]);
   });
 
@@ -45,7 +45,8 @@ describe('TEST: App Component', () => {
 
   it('can create, should have title', asyncPower(async () => {
     const fixture = await builder
-      .overrideProviders(AppComponent, [{ provide: HeroService, useClass: MockHeroService }])
+      .overrideProviders(AppComponent, [{ provide: HeroService, useClass: Mock }])
+      .overrideDirective(AppComponent, RouterLinkActive, MockRouterLinkActive)
       .createAsync(AppComponent);
     const el = fixture.nativeElement as HTMLElement;
     const component = fixture.componentRef.instance;
@@ -56,4 +57,3 @@ describe('TEST: App Component', () => {
   }));
 
 });
-
