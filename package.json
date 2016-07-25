@@ -1,7 +1,7 @@
 {
   "name": "my-ng2-env-20160725",
   "version": "1.0.0",
-  "description": "Angular2の開発環境、俺ならこうやる 2016年7月25日版 (あまり鵜呑みにしないでください)",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc -p tsconfig.json",
@@ -13,7 +13,15 @@
     "start": "npm run build && concurrently -k \"npm run webpack:w\" \"gulp copy:w\" \"npm run ls\" ",
     "ls": "lite-server --config config/browsersync.json",
     "serve": "npm run build:p && firebase serve",
-    "deploy": "npm run build:p && firebase deploy && firebase open hosting:site"
+    "deploy": "npm run build:p && firebase deploy && firebase open hosting:site",
+    "build:test:ng2": "webpack --config test-ng2/webpack.config.test.js",
+    "webpack:test:ng2:w": "webpack --config test-ng2/webpack.config.test.js -w",
+    "karma": "npm run build:test:ng2 && karma start --single-run",
+    "karma:w": "npm run build:test:ng2 && concurrently -k \"npm run webpack:test:ng2:w\" \"karma start\" ",
+    "webpack:test:rxjs": "webpack --config test-rxjs/webpack.config.test.js",
+    "webpack:test:rxjs:w": "webpack --config test-rxjs/webpack.config.test.js -w",
+    "test:rxjs": "npm run webpack:test:rxjs && gulp mocha:rxjs",
+    "test:rxjs:w": "npm run webpack:test:rxjs && concurrently -k \"npm run webpack:test:rxjs:w\" \"gulp mocha:rxjs:w\" "
   },
   "repository": {
     "type": "git",
@@ -21,7 +29,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ovrmrw/my-ng2-env-20160725/issues"
   },
@@ -35,6 +43,7 @@
     "@angular/platform-browser": "^2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
     "@angular/router": "^3.0.0-beta.2",
+    "angular2-in-memory-web-api": "0.0.14",
     "babel-polyfill": "^6.9.1",
     "core-js": "^2.4.1",
     "lodash": "^4.14.0",
@@ -43,17 +52,18 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "@types/chai": "^3.4.29",
     "@types/empower": "0.0.28",
     "@types/fs-extra": "0.0.28",
     "@types/lodash": "0.0.28",
     "@types/mocha": "^2.2.28",
     "@types/power-assert": "0.0.27",
     "@types/power-assert-formatter": "0.0.26",
-    "angular2-in-memory-web-api": "0.0.14",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^2.1.0",
     "babel-plugin-espower": "^2.3.1",
     "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
     "codelyzer": "0.0.25",
     "concurrently": "^2.2.0",
     "fs-extra": "^0.30.0",

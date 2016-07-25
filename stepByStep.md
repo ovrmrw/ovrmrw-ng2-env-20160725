@@ -132,3 +132,29 @@ webpack.config.js, webpack.config.production.js作る
   "typescript.tsdk": "./node_modules/typescript/lib"
 }
 ```
+
+---
+
+firebase hosting
+
+```json:.firebaserc
+{
+  "projects": {
+    "default": "my-ng2-env-20160725"
+  }
+}
+```
+
+```json:firebase.json
+{
+  "hosting": {
+    "public": ".dest",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+```
