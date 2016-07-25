@@ -18,7 +18,6 @@ class MockRouter {
   createUrlTree() { }
   navigateByUrl() { }
   navigate() { }
-  // events: Observable<Event>
 }
 class Mock { }
 class MockHeroService { }
@@ -34,7 +33,7 @@ describe('TEST: App Component', () => {
       { provide: APP_BASE_HREF, useValue: '/' }, // must be second
       { provide: ActivatedRoute, useClass: Mock },
       { provide: Router, useClass: MockRouter },
-      { provide: LocationStrategy, useClass: SpyLocation },
+      // { provide: LocationStrategy, useClass: SpyLocation },
     ]);
   });
 
