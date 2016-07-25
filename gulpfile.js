@@ -4,8 +4,9 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const mocha = require('gulp-mocha');
 
+
 ////////////////////////////////////////////////////////////////////////////////
-// Mocha
+// Rxjs5 Marble Test (mocha)
 const rxjsSpecJS = './.dest-test-rxjs/webpack.bundle.spec.rxjs.js';
 
 gulp.task('mocha:rxjs', [], () => {
@@ -23,10 +24,8 @@ gulp.task('mocha:rxjs:w', ['mocha:rxjs'], () => {
 });
 
 
-
 ////////////////////////////////////////////////////////////////////////////////
-// Build for deploy
-
+// Observer for public folder changes.
 const copyFiles = [
   './public/*.{html,css,js}',
 ];

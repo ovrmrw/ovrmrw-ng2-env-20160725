@@ -2,6 +2,8 @@
 
 ---
 
+[Demo on firebase hosting](https://my-ng2-env-20160725.firebaseapp.com)
+
 ### Setup
 ```
 $ npm install

@@ -5,25 +5,32 @@ import { inject, async, fakeAsync, tick, addProviders, TestComponentBuilder, Com
 import { asyncPower, fakeAsyncPower, setTimeoutPromise, elements, elementText } from '../../test-ng2/testing.helper';
 /* <<< boilerplate */
 
-import { Observable } from 'rxjs/Rx';
+
+////////////////////////////////////////////////////////////////////////
+// modules
 import { AppComponent } from '../../src/app/app.component';
 import { HeroService } from '../../src/webapi/hero.service';
 import { appRouterProviders } from '../../src/app/app.routes';
 
-import { Directive } from '@angular/core'
-import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { Directive } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
 
+////////////////////////////////////////////////////////////////////////
+// mocks
 class Mock { }
 class MockRouter {
   createUrlTree() { }
 }
 
 @Directive({ selector: '[routerLinkActive]' })
-class MockRouterLinkActive { }
+class MockRouterLinkActiveDirective { }
 
 
+////////////////////////////////////////////////////////////////////////
+// tests
 describe('TEST: App Component', () => {
   /* >>> boilerplate */
   let builder: TestComponentBuilder;
@@ -46,7 +53,7 @@ describe('TEST: App Component', () => {
   it('can create, should have title', asyncPower(async () => {
     const fixture = await builder
       .overrideProviders(AppComponent, [{ provide: HeroService, useClass: Mock }])
-      .overrideDirective(AppComponent, RouterLinkActive, MockRouterLinkActive)
+      .overrideDirective(AppComponent, RouterLinkActive, MockRouterLinkActiveDirective)
       .createAsync(AppComponent);
     const el = fixture.nativeElement as HTMLElement;
     const component = fixture.componentRef.instance;

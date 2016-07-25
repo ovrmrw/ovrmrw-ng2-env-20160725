@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc -p tsconfig.json",
-    "tsc:w": "tsc -p tsconfig.json -w",
     "clean": "node build/copy-files.js",
     "build": "npm run clean && webpack --config webpack.config.js",
     "build:p": "npm run clean && webpack --config webpack.config.production.js",
@@ -21,7 +19,11 @@
     "webpack:test:rxjs": "webpack --config test-rxjs/webpack.config.test.js",
     "webpack:test:rxjs:w": "webpack --config test-rxjs/webpack.config.test.js -w",
     "test:rxjs": "npm run webpack:test:rxjs && gulp mocha:rxjs",
-    "test:rxjs:w": "npm run webpack:test:rxjs && concurrently -k \"npm run webpack:test:rxjs:w\" \"gulp mocha:rxjs:w\" "
+    "test:rxjs:w": "npm run webpack:test:rxjs && concurrently -k \"npm run webpack:test:rxjs:w\" \"gulp mocha:rxjs:w\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "tslint": "tslint -c tslint.json src*/**/*.ts",
+    "tscheck": "npm run tsc && npm run tslint"
   },
   "repository": {
     "type": "git",
