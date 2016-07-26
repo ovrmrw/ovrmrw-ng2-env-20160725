@@ -57,8 +57,8 @@ describe('TEST: App Component', () => {
       .createAsync(AppComponent);
     const el = fixture.nativeElement as HTMLElement;
     const component = fixture.componentRef.instance;
-    assert(!!fixture);
 
+    assert(!!fixture);
     fixture.detectChanges();
     assert(component.title === 'Tour of Heroes');
   }));
