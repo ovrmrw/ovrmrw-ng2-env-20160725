@@ -1,4 +1,4 @@
-# my-ng2-env-20160725
+# ovrmrw-ng2-env-20160725
 
 ---
 
@@ -14,6 +14,11 @@ $ npm install
 $ npm start
 ```
 
+### Check whether your TypeScript codes are correct
+```
+$ npm run tscheck
+```
+
 ### Unit Test
 ```
 $ npm run karma
@@ -23,7 +28,17 @@ $ npm run karma:w
 
 ### Rxjs5 Marble Test
 ```
-$ npm run test:rxjs
+$ npm run testrxjs
 or
-$ npm run test:rxjs:w
+$ npm run testrxjs:w
+```
+
+### Unit Test & Rxjs5 Marble Test at the same time
+```
+$ npm test
+```
+
+### Deploy to firebase hosting
+```
+$ npm run deploy
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "my-ng2-env-20160725",
+  "name": "ovrmrw-ng2-env-20160725",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,14 +12,17 @@
     "ls": "lite-server --config config/browsersync.json",
     "serve": "npm run build:p && firebase serve",
     "deploy": "npm run build:p && firebase deploy && firebase open hosting:site",
-    "build:test:ng2": "webpack --config test-ng2/webpack.config.test.js",
-    "webpack:test:ng2:w": "webpack --config test-ng2/webpack.config.test.js -w",
-    "karma": "npm run build:test:ng2 && karma start --single-run",
-    "karma:w": "npm run build:test:ng2 && concurrently -k \"npm run webpack:test:ng2:w\" \"karma start\" ",
-    "webpack:test:rxjs": "webpack --config test-rxjs/webpack.config.test.js",
-    "webpack:test:rxjs:w": "webpack --config test-rxjs/webpack.config.test.js -w",
-    "test:rxjs": "npm run webpack:test:rxjs && gulp mocha:rxjs",
-    "test:rxjs:w": "npm run webpack:test:rxjs && concurrently -k \"npm run webpack:test:rxjs:w\" \"gulp mocha:rxjs:w\" ",
+    "clean:test-ng2": "node build/clean.test-ng2.js",
+    "build:test-ng2": "npm run clean:test-ng2 && webpack --config test-ng2/webpack.config.test.js",
+    "webpack:test-ng2:w": "webpack --config test-ng2/webpack.config.test.js -w",
+    "karma": "npm run build:test-ng2 && karma start --single-run",
+    "karma:w": "npm run build:test-ng2 && concurrently -k \"npm run webpack:test-ng2:w\" \"karma start\" ",
+    "clean:test-rxjs": "node build/clean.test-rxjs.js",
+    "webpack:test-rxjs": "npm run clean:test-rxjs && webpack --config test-rxjs/webpack.config.test.js",
+    "webpack:test-rxjs:w": "webpack --config test-rxjs/webpack.config.test.js -w",
+    "testrxjs": "npm run webpack:test-rxjs && gulp mocha:rxjs",
+    "testrxjs:w": "npm run webpack:test-rxjs && concurrently -k \"npm run webpack:test-rxjs:w\" \"gulp mocha:rxjs:w\" ",
+    "test": "npm run testrxjs && npm run karma",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "tslint": "tslint -c tslint.json src*/**/*.ts",
@@ -27,15 +30,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ovrmrw/my-ng2-env-20160725.git"
+    "url": "git+https://github.com/ovrmrw/ovrmrw-ng2-env-20160725.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ovrmrw/my-ng2-env-20160725/issues"
+    "url": "https://github.com/ovrmrw/ovrmrw-ng2-env-20160725/issues"
   },
-  "homepage": "https://github.com/ovrmrw/my-ng2-env-20160725#readme",
+  "homepage": "https://github.com/ovrmrw/ovrmrw-ng2-env-20160725#readme",
   "dependencies": {
     "@angular/common": "^2.0.0-rc.4",
     "@angular/compiler": "^2.0.0-rc.4",

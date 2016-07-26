@@ -18,7 +18,7 @@ module.exports = {
       {
         test: /\.ts$/,
         exclude: [/node_modules/],
-        loaders: ['awesome-typescript-loader?tsconfig=config/tsconfig.bundle.json'],
+        loaders: ['awesome-typescript-loader?tsconfig=config/tsconfig.test-rxjs.json'],
       },
     ]
   },
