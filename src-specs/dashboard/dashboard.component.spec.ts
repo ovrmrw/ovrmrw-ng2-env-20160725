@@ -62,15 +62,23 @@ describe('TEST: Dashboard Component', () => {
     let fixture: ComponentFixture<DashboardComponent> | undefined;
     builder.createAsync(DashboardComponent).then(f => fixture = f);
     tick();
+    assert(!!fixture);
     if (fixture) {
       const el = fixture.nativeElement as HTMLElement;
       const component = fixture.componentRef.instance;
-      assert(!!fixture);
       assert(elementText(el, 'h3') === 'Top Heroes');
       assert(component.heroes.length === 0);
+      assert(elements(el, 'div.grid div.col-1-4').length === 0);
       component.ngOnInit();
       tick();
       assert(component.heroes.length === 4);
+      fixture.detectChanges();
+      assert(elements(el, 'div.grid div.col-1-4').length === 4);
+      assert(elementText(el, 'div.hero', 0).trim() === 'Narco');
+      assert(elementText(el, 'div.hero', 1).trim() === 'Bombasto');
+      assert(elementText(el, 'div.hero', 2).trim() === 'Celeritas');
+      assert(elementText(el, 'div.hero', 3).trim() === 'Magneta');
+      assert(el.querySelectorAll('div.hero')[4] === undefined);
     }
   }));
 

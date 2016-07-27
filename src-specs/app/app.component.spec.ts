@@ -41,6 +41,7 @@ describe('TEST: App Component', () => {
       { provide: APP_BASE_HREF, useValue: '/' }, // must be second
       { provide: ActivatedRoute, useClass: Mock },
       { provide: Router, useClass: MockRouter },
+      { provide: HeroService, useClass: Mock }
     ]);
   });
 
@@ -52,12 +53,10 @@ describe('TEST: App Component', () => {
 
   it('can create, should have title', asyncPower(async () => {
     const fixture = await builder
-      .overrideProviders(AppComponent, [{ provide: HeroService, useClass: Mock }])
       .overrideDirective(AppComponent, RouterLinkActive, MockRouterLinkActiveDirective)
       .createAsync(AppComponent);
     const el = fixture.nativeElement as HTMLElement;
     const component = fixture.componentRef.instance;
-
     assert(!!fixture);
     fixture.detectChanges();
     assert(component.title === 'Tour of Heroes');

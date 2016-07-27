@@ -37,7 +37,7 @@ class MockHeroService {
 }
 class MockActivatedRoute {
   get params(): Observable<{ id: string }> {
-    return Observable.of({ id: '15' });
+    return Observable.of({ id: '16' });
   }
 }
 
@@ -65,15 +65,19 @@ describe('TEST: HeroDetail Component', () => {
     let fixture: ComponentFixture<HeroDetailComponent> | undefined;
     builder.createAsync(HeroDetailComponent).then(f => fixture = f);
     tick();
+    assert(!!fixture);
     if (fixture) {
       const el = fixture.nativeElement as HTMLElement;
       const component = fixture.componentRef.instance;
-      assert(!!fixture);
+      assert(el.querySelector('h2') === null);
       component.ngOnInit();
       tick();
-      assert.deepEqual(component.hero, { id: 15, name: 'Magneta' });
+      assert.deepEqual(component.hero, { id: 16, name: 'RubberMan' });
       fixture.detectChanges();
-      assert(elementText(el, 'h2') === 'Magneta details!');
+      assert(el.querySelector('h2') !== null);
+      assert(elementText(el, 'h2') === 'RubberMan details!');
+      assert(elementText(el, 'div#heroid').trim() === 'id: 16');
+      assert((<HTMLInputElement>el.querySelector('div#heroname input')).value === 'RubberMan');
     }
   }));
 
