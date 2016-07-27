@@ -2,7 +2,7 @@
 import assert from 'power-assert';
 import lodash from 'lodash';
 import { inject, async, fakeAsync, tick, addProviders, TestComponentBuilder, ComponentFixture } from '@angular/core/testing';
-import { asyncPower, fakeAsyncPower, setTimeoutPromise, elements, elementText } from '../../test-ng2/testing.helper';
+import { asyncPower, fakeAsyncPower, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
 /* <<< boilerplate */
 
 
@@ -77,7 +77,7 @@ describe('TEST: HeroDetail Component', () => {
       assert(el.querySelector('h2') !== null);
       assert(elementText(el, 'h2') === 'RubberMan details!');
       assert(elementText(el, 'div#heroid').trim() === 'id: 16');
-      assert((<HTMLInputElement>el.querySelector('div#heroname input')).value === 'RubberMan');
+      assert(elementValue(el, 'div#heroname input') === 'RubberMan');
     }
   }));
 

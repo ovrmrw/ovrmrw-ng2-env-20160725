@@ -21,6 +21,11 @@ export function elementText(element: HTMLElement, selectors: string, index: numb
 }
 
 
+export function elementValue(element: HTMLElement, selectors: string, index: number = 0): string {
+  return (<HTMLInputElement>element.querySelectorAll(selectors)[index]).value || '';
+}
+
+
 export function elements(element: HTMLElement, selectors: string): NodeListOf<Element> {
   return element.querySelectorAll(selectors);
 }

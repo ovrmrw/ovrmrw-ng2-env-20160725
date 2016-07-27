@@ -51,15 +51,23 @@ describe('TEST: App Component', () => {
   /* <<< boilerplate */
 
 
-  it('can create, should have title', asyncPower(async () => {
-    const fixture = await builder
+  it('can create, should have title', fakeAsyncPower(() => {
+    let fixture: ComponentFixture<AppComponent> | undefined;
+    builder
       .overrideDirective(AppComponent, RouterLinkActive, MockRouterLinkActiveDirective)
-      .createAsync(AppComponent);
-    const el = fixture.nativeElement as HTMLElement;
-    const component = fixture.componentRef.instance;
+      .createAsync(AppComponent).then(f => fixture = f);
+    tick();
     assert(!!fixture);
-    fixture.detectChanges();
-    assert(component.title === 'Tour of Heroes');
+    if (fixture) {
+      const el = fixture.nativeElement as HTMLElement;
+      const component = fixture.componentRef.instance;
+      assert(elementText(el, 'nav a', 0) === 'Dashboard');
+      assert(elementText(el, 'nav a', 1) === 'Heroes');
+      assert(component.title === 'Tour of Heroes');      
+      assert(elementText(el, 'h1') === '');
+      fixture.detectChanges();
+      assert(elementText(el, 'h1') === 'Tour of Heroes');
+    }
   }));
 
 });
