@@ -52,10 +52,9 @@ describe('TEST: App Component', () => {
 
 
   it('can create, should have title', fakeAsyncPower(() => {
-    let fixture: ComponentFixture<AppComponent> | undefined;
-    builder
+    const fixture = builder
       .overrideDirective(AppComponent, RouterLinkActive, MockRouterLinkActiveDirective)
-      .createAsync(AppComponent).then(f => fixture = f);
+      .createFakeAsync(AppComponent);
     tick();
     assert(!!fixture);
     if (fixture) {
@@ -63,7 +62,7 @@ describe('TEST: App Component', () => {
       const component = fixture.componentRef.instance;
       assert(elementText(el, 'nav a', 0) === 'Dashboard');
       assert(elementText(el, 'nav a', 1) === 'Heroes');
-      assert(component.title === 'Tour of Heroes');      
+      assert(component.title === 'Tour of Heroes');
       assert(elementText(el, 'h1') === '');
       fixture.detectChanges();
       assert(elementText(el, 'h1') === 'Tour of Heroes');

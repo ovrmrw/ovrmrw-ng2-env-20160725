@@ -62,8 +62,7 @@ describe('TEST: HeroDetail Component', () => {
 
 
   it('can create, should have a selected hero', fakeAsyncPower(() => {
-    let fixture: ComponentFixture<HeroDetailComponent> | undefined;
-    builder.createAsync(HeroDetailComponent).then(f => fixture = f);
+    const fixture = builder.createFakeAsync(HeroDetailComponent);
     tick();
     assert(!!fixture);
     if (fixture) {

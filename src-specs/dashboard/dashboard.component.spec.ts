@@ -59,8 +59,7 @@ describe('TEST: Dashboard Component', () => {
 
 
   it('can create, should have title, should have 4 heroes', fakeAsyncPower(() => {
-    let fixture: ComponentFixture<DashboardComponent> | undefined;
-    builder.createAsync(DashboardComponent).then(f => fixture = f);
+    const fixture = builder.createFakeAsync(DashboardComponent);
     tick();
     assert(!!fixture);
     if (fixture) {
