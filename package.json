@@ -26,7 +26,8 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "tslint": "tslint -c tslint.json src*/**/*.ts",
-    "tscheck": "npm run tsc && npm run tslint"
+    "tscheck": "npm run tsc && npm run tslint",
+    "sass": "node-sass src --output .dest/src --recursive"
   },
   "repository": {
     "type": "git",
