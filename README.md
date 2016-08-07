@@ -6,6 +6,12 @@
 
 [Demo on firebase hosting](https://my-ng2-env-20160725.firebaseapp.com)
 
+||My Environments|
+|:--|:--|
+|OS|Windows 10 64bit|
+|Editor|VSCode (stable)|
+|node --version|v6.3.1|
+
 ### Setup
 ```
 $ npm install
