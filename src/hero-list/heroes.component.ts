@@ -6,11 +6,10 @@ import { HeroService } from '../webapi/hero.service';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-heroes',
   templateUrl: 'heroes.component.html',
   styleUrls: ['heroes.component.css'],
-  directives: [HeroDetailComponent]
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];

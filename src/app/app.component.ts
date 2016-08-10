@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { HeroService } from '../webapi/hero.service';
 // import './rxjs-extensions';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-app',
-
   template: `
     <h1>{{title}}</h1>
     <nav>
@@ -16,19 +14,8 @@ import { HeroService } from '../webapi/hero.service';
     </nav>
     <router-outlet></router-outlet>
   `,
-  styleUrls: ['app.component.scss'],
-  directives: [ROUTER_DIRECTIVES],
-  providers: [
-    HeroService,
-  ]
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
   title = 'Tour of Heroes';
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

@@ -1,10 +1,10 @@
-import { provideRouter, RouterConfig } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeroesComponent } from '../hero-list/heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
-const routes: RouterConfig = [
+const appRoutes: Routes = [
   {
     path: '',
     redirectTo: '/dashboard',
@@ -24,13 +24,4 @@ const routes: RouterConfig = [
   }
 ];
 
-export const appRouterProviders = [
-  provideRouter(routes)
-];
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+export const routing = RouterModule.forRoot(appRoutes);

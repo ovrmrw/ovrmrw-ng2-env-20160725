@@ -8,9 +8,10 @@
 
 ||My Environments|
 |:--|:--|
-|OS|Windows 10 64bit|
+|OS|Windows 10 Pro 64bit or 7 Pro 32bit|
 |Editor|VSCode (stable)|
 |node --version|v6.3.1|
+|@angular/core|2.0.0-rc.5|
 
 ### Setup
 ```

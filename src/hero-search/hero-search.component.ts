@@ -6,10 +6,9 @@ import { HeroSearchService } from './hero-search.service';
 import { Hero } from '../types';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'hero-search',
   templateUrl: 'hero-search.component.html',
-  providers: [HeroSearchService]
 })
 export class HeroSearchComponent implements OnInit {
   heroes: Observable<Hero[]>;

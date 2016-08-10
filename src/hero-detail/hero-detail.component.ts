@@ -6,7 +6,7 @@ import { Hero } from '../types';
 import { HeroService } from '../webapi/hero.service';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'hero-detail.component.html',
   styleUrls: ['hero-detail.component.css']
@@ -15,16 +15,15 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   @Input() hero: Hero;
   @Output() close = new EventEmitter<Hero | null>();
   error: any;
-  sub: Subscription;
   navigated = false; // true if navigated here
 
   constructor(
     private heroService: HeroService,
-    private route: ActivatedRoute) {
-  }
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe((params: RouteParams) => {
+    this.route.params.forEach((params: RouteParams) => {
       if (params.id !== undefined) {
         const id = +params.id;
         this.navigated = true;
@@ -38,9 +37,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+  ngOnDestroy() { }
 
   save(): void {
     this.heroService
