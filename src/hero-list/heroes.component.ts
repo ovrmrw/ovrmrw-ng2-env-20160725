@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { Hero } from '../types';
 import { HeroService } from '../webapi/hero.service';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 @Component({
   // moduleId: module.id,

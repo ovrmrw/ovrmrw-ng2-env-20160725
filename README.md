@@ -2,7 +2,7 @@
 
 ---
 
-[Angular2の開発環境、俺ならこうやる 2016年7月25日版(rc.4)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
+[Angular2の開発環境、俺ならこうやる 2016年7月25日版(rc.5)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
 
 [Demo on firebase hosting](https://my-ng2-env-20160725.firebaseapp.com)
 

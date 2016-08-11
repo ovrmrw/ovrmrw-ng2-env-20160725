@@ -1,8 +1,3 @@
-const specFiles: string[] = [
-  './app/app.component.spec',
-  './dashboard/dashboard.component.spec',
-  './hero-detail/hero-detail.component.spec',
-  // './hero-list/heroes.component.spec',
-];
-
-specFiles.forEach(file => require(file));
+export * from './app/app.component.spec';
+export * from './dashboard/dashboard.component.spec';
+export * from './hero-detail/hero-detail.component.spec';

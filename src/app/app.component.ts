@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-import { HeroService } from '../webapi/hero.service';
-// import './rxjs-extensions';
-
 @Component({
   // moduleId: module.id,
   selector: 'my-app',

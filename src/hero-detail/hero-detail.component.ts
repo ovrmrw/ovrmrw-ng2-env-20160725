@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, OnDestroy, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
 
 import { Hero } from '../types';
 import { HeroService } from '../webapi/hero.service';
