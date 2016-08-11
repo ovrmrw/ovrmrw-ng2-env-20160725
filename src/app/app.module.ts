@@ -19,7 +19,7 @@ import { InMemoryDataService } from '../webapi/in-memory-data.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, routing],
-  declarations: [AppComponent, DashboardComponent, HeroesComponent, HeroDetailComponent, HeroSearchComponent],
+  declarations: [HeroSearchComponent, DashboardComponent, HeroesComponent, HeroDetailComponent, AppComponent],
   providers: [HTTP_PROVIDERS, HeroSearchService, HeroService,
     { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
     { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
