@@ -9,7 +9,11 @@
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "outDir": ".dest-tsc"
+    "outDir": ".dest-tsc",
+    "lib": [
+      "es2017",
+      "dom"
+    ]
   },
   "exclude": [
     "node_modules"

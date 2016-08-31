@@ -48,8 +48,8 @@ describe('TEST: Dashboard Component', () => {
         { provide: HeroService, useClass: MockHeroService },
         { provide: Router, useClass: Mock },
       ]
-    })
-  })
+    });
+  });
   /* <<< boilerplate */
 
 
