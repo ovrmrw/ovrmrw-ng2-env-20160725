@@ -1,15 +1,14 @@
 /* >>> boilerplate */
 import assert from 'power-assert';
 import lodash from 'lodash';
-import { inject, async, fakeAsync, tick, TestBed, ComponentFixture } from '@angular/core/testing';
-import { asyncPower, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
+import { inject, async, TestBed, ComponentFixture } from '@angular/core/testing';
+import { asyncPower, fakeAsyncPower, tick, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
 /* <<< boilerplate */
 
 
 ////////////////////////////////////////////////////////////////////////
 // modules
 import { AppComponent } from '../../src/app/app.component';
-
 import { Directive } from '@angular/core';
 // import { APP_BASE_HREF } from '@angular/common';
 // import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
@@ -66,7 +65,7 @@ describe('TEST: App Component', () => {
   }));
 
 
-  it('can create, should have title (fakeAsync ver.)', fakeAsync(() => {
+  it('can create, should have title (fakeAsync ver.)', fakeAsyncPower(() => {
     TestBed
       .overrideComponent(AppComponent, { set: { template: mockTemplate } })
       .compileComponents();

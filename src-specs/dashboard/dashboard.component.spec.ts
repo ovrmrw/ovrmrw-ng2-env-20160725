@@ -1,8 +1,8 @@
 /* >>> boilerplate */
 import assert from 'power-assert';
 import lodash from 'lodash';
-import { inject, async, fakeAsync, tick, TestBed, ComponentFixture } from '@angular/core/testing';
-import { asyncPower, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
+import { inject, async, TestBed, ComponentFixture } from '@angular/core/testing';
+import { asyncPower, fakeAsyncPower, tick, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
 /* <<< boilerplate */
 
 
@@ -12,6 +12,7 @@ import { DashboardComponent } from '../../src/dashboard/dashboard.component';
 import { HeroService } from '../../src/webapi/hero.service';
 import { Hero } from '../../src/types';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -47,7 +48,8 @@ describe('TEST: Dashboard Component', () => {
       providers: [
         { provide: HeroService, useClass: MockHeroService },
         { provide: Router, useClass: Mock },
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
   });
   /* <<< boilerplate */
@@ -75,10 +77,11 @@ describe('TEST: Dashboard Component', () => {
     assert(elementText(el, 'div.hero', 2).trim() === 'Celeritas');
     assert(elementText(el, 'div.hero', 3).trim() === 'Magneta');
     assert(el.querySelectorAll('div.hero')[4] === undefined);
+    
   }));
 
 
-  it('can create, should have title, should have 4 heroes (fakeAsync ver.)', fakeAsync(() => {
+  it('can create, should have title, should have 4 heroes (fakeAsync ver.)', fakeAsyncPower(() => {
     TestBed.compileComponents();
     tick();
     const fixture = TestBed.createComponent(DashboardComponent);

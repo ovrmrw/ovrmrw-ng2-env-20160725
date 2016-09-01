@@ -11,7 +11,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'], // jasmine / mocha
+    frameworks: ['jasmine'], // jasmine / mocha
 
 
     // list of files / patterns to load in the browser
@@ -30,6 +30,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      './.dest-test-ng2/webpack.bundle.spec.vendor.js': ['sourcemap'],
       './.dest-test-ng2/webpack.bundle.spec.main.js': ['sourcemap']
     },
 

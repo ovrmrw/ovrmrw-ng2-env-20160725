@@ -12,15 +12,15 @@ import { HeroSearchComponent } from '../hero-search/hero-search.component';
 import { HeroSearchService } from '../hero-search/hero-search.service';
 import { HeroService } from '../webapi/hero.service';
 
-import { XHRBackend, HTTP_PROVIDERS } from '@angular/http';
+import { XHRBackend, HttpModule } from '@angular/http';
 import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
 import { InMemoryDataService } from '../webapi/in-memory-data.service';
 
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, routing],
+  imports: [BrowserModule, HttpModule, FormsModule, routing],
   declarations: [HeroSearchComponent, DashboardComponent, HeroesComponent, HeroDetailComponent, AppComponent],
-  providers: [HTTP_PROVIDERS, HeroSearchService, HeroService,
+  providers: [HeroSearchService, HeroService,
     { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
     { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
   ],
