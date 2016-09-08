@@ -1,8 +1,8 @@
 /* >>> boilerplate */
 import assert from 'power-assert';
 import lodash from 'lodash';
-import { inject, async, TestBed, ComponentFixture } from '@angular/core/testing';
-import { asyncPower, fakeAsyncPower, tick, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
+import { inject, async, fakeAsync, tick, TestBed, ComponentFixture } from '@angular/core/testing';
+import { setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
 /* <<< boilerplate */
 
 
@@ -55,7 +55,7 @@ describe('TEST: Dashboard Component', () => {
   /* <<< boilerplate */
 
 
-  it('can create, should have title, should have 4 heroes', asyncPower(async () => {
+  it('can create, should have title, should have 4 heroes', async(async () => { // 2つ目のasyncは async/await のasync。
     await TestBed.compileComponents();
     const fixture = TestBed.createComponent(DashboardComponent);
     assert(!!fixture);
@@ -81,7 +81,7 @@ describe('TEST: Dashboard Component', () => {
   }));
 
 
-  it('can create, should have title, should have 4 heroes (fakeAsync ver.)', fakeAsyncPower(() => {
+  it('can create, should have title, should have 4 heroes (fakeAsync ver.)', fakeAsync(() => {
     TestBed.compileComponents();
     tick();
     const fixture = TestBed.createComponent(DashboardComponent);

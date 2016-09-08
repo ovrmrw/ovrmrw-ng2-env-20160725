@@ -1,8 +1,8 @@
 /* >>> boilerplate */
 import assert from 'power-assert';
 import lodash from 'lodash';
-import { inject, async, TestBed, ComponentFixture } from '@angular/core/testing';
-import { asyncPower, fakeAsyncPower, tick, setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
+import { inject, async, fakeAsync, tick, TestBed, ComponentFixture } from '@angular/core/testing';
+import { setTimeoutPromise, elements, elementText, elementValue } from '../../test-ng2/testing.helper';
 /* <<< boilerplate */
 
 
@@ -61,7 +61,7 @@ xdescribe('TEST: HeroDetail Component', () => {
   });
 
 
-  it('can create, should have a selected hero', asyncPower(async () => {
+  it('can create, should have a selected hero', async(async () => {
     await TestBed.compileComponents();
     const fixture = TestBed.createComponent(HeroDetailComponent);
     assert(!!fixture);
