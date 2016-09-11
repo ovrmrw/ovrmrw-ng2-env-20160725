@@ -1,7 +1,7 @@
 'use strict';
 
 const webpack = require('webpack');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -10,13 +10,17 @@ module.exports = {
   },
   output: {
     path: '.dest',
-    filename: 'webpack.bundle.[name].js'
+    filename: 'webpack.bundle.[name].[hash].js',
+    chunkFilename: 'chunks.[id].[hash].js'
   },
   resolve: {
     extensions: ['', '.ts', '.js']
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' })
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    })
   ],
   module: {
     loaders: [

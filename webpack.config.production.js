@@ -1,18 +1,20 @@
 'use strict';
 
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 
 module.exports = {
   entry: {
-    vendor: './config/vendor.production.ts',
+    vendor: './config/vendor.ts',
     main: './src/main.ts',
   },
   output: {
     path: '.dest',
-    filename: 'webpack.bundle.[name].js'
+    filename: 'webpack.bundle.[name].min.[hash].js',
+    chunkFilename: 'chunks.[id].min.[hash].js'
   },
   resolve: {
     extensions: ['', '.ts', '.js']
@@ -23,7 +25,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
-      mangle: { screw_ie8: true },
+      mangle: { screw_ie8: true, keep_fnames: true },
       compress: { screw_ie8: true },
       comments: false
     }),
@@ -32,6 +34,9 @@ module.exports = {
         'ENV': JSON.stringify(ENV)
       }
     }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    })
   ],
   module: {
     loaders: [
