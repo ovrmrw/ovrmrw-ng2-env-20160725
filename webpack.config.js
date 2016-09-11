@@ -10,8 +10,8 @@ module.exports = {
   },
   output: {
     path: '.dest',
-    filename: 'webpack.bundle.[name].[hash].js',
-    chunkFilename: 'chunks.[id].[hash].js'
+    filename: 'webpack.bundle.[name].js',
+    chunkFilename: 'chunks.[id].js'
   },
   resolve: {
     extensions: ['', '.ts', '.js']
