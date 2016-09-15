@@ -2,7 +2,7 @@
 
 ---
 
-[Angular2の開発環境、俺ならこうやる 2016年7月25日版(rc.6)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
+[Angular2の開発環境、俺ならこうやる 2016年7月25日版(2.0)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
 
 [Demo on firebase hosting](https://my-ng2-env-20160725.firebaseapp.com)
 
@@ -11,7 +11,7 @@
 |OS|Windows 10 Pro 64bit or 7 Pro 32bit|
 |Editor|VSCode (stable)|
 |node --version|v6.3.1|
-|@angular/core|2.0.0-rc.6|
+|@angular/core|2.0.0|
 
 ### Setup
 ```

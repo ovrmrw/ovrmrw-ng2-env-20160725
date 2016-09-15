@@ -77,7 +77,6 @@ describe('TEST: Dashboard Component', () => {
     assert(elementText(el, 'div.hero', 2).trim() === 'Celeritas');
     assert(elementText(el, 'div.hero', 3).trim() === 'Magneta');
     assert(el.querySelectorAll('div.hero')[4] === undefined);
-    
   }));
 
 
