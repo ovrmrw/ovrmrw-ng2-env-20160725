@@ -4,7 +4,7 @@
 
 [Angular2の開発環境、俺ならこうやる 2016年7月25日版(2.0)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
 
-[Demo on firebase hosting](https://my-ng2-env-20160725.firebaseapp.com)
+[Demo on Firebase Hosting](https://my-ng2-env-20160725.firebaseapp.com)
 
 ||My Environments|
 |:--|:--|
@@ -35,19 +35,19 @@ or
 $ npm run karma:w
 ```
 
-### Rxjs5 Marble Test
+### RxJS Marble Test
 ```
 $ npm run testrxjs
 or
 $ npm run testrxjs:w
 ```
 
-### Unit Test & Rxjs5 Marble Test at the same time
+### Unit Test & RxJS Marble Test at the same time
 ```
 $ npm test
 ```
 
-### Deploy to firebase hosting
+### Deploy to Firebase Hosting
 ```
 $ npm run deploy
 ```
