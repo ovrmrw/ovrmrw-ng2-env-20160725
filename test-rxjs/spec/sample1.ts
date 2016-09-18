@@ -4,7 +4,7 @@ import assert from 'assert';
 /* <<< boilerplate */
 
 
-describe('TEST: rxjs5 basics', () => {
+describe('TEST: RxJS Marble Test basics', () => {
   /* >>> boilerplate */
   let ts: TestScheduler;
   let hot: typeof TestScheduler.prototype.createHotObservable;
@@ -25,11 +25,6 @@ describe('TEST: rxjs5 basics', () => {
     const test$ = mapFilterTest(source$);
     ts.expectObservable(test$).toBe(marbles, values);
     ts.flush();
-  });
-
-
-  it('should pass', () => {
-    assert(1 + 1 === 2);
   });
 
 });

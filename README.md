@@ -1,10 +1,9 @@
 # ovrmrw-ng2-env-20160725
+[Demo on Firebase Hosting](https://my-ng2-env-20160725.firebaseapp.com)
 
 ---
 
-[Angular2の開発環境、俺ならこうやる 2016年7月25日版(2.0)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
-
-[Demo on Firebase Hosting](https://my-ng2-env-20160725.firebaseapp.com)
+Blog -> [Angular2の開発環境、俺ならこうやる 2016年7月25日版(2.0)](http://qiita.com/ovrmrw/items/56364a4b673c03e20bba)
 
 ||My Environments|
 |:--|:--|

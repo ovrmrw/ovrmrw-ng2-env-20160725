@@ -1,5 +1,9 @@
 const fs = require('fs-extra');
 
+
+// デバッグログを削除する。
+fs.remove('./npm-debug.log*');
+
 // 一時フォルダを削除する。
 fs.removeSync('./.dest');
 // fs.removeSync('./.awcache');
@@ -11,5 +15,5 @@ fs.copy('./public', './.dest');
 fs.copy('./src', './.dest/src', { filter: /^(?!.*\.ts(x|)$)/ }); // systemjs用
 
 // polyfillを.destフォルダにコピーする。
-// fs.copy('./node_modules/core-js/client/shim.min.js', './.dest/shim.min.js');
+fs.copy('./node_modules/core-js/client/shim.min.js', './.dest/shim.min.js');
 fs.copy('./node_modules/babel-polyfill/dist/polyfill.min.js', './.dest/polyfill.min.js');
