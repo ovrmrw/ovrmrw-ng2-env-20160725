@@ -51,18 +51,18 @@
     "@angular/router": "^3.0.0",
     "angular2-in-memory-web-api": "0.0.18",
     "babel-polyfill": "^6.9.1",
-    "lodash": "^4.14.0",
+    "lodash": "^4.16.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.0-beta.12",
-    "zone.js": "^0.6.23"
+    "zone.js": "^0.6.25"
   },
   "devDependencies": {
-    "@types/empower": "0.0.28",
-    "@types/fs-extra": "0.0.28",
-    "@types/jasmine": "^2.2.33",
-    "@types/lodash": "0.0.28",
-    "@types/power-assert": "0.0.27",
-    "@types/power-assert-formatter": "0.0.26",
+    "@types/empower": "0.0.29",
+    "@types/fs-extra": "0.0.32",
+    "@types/jasmine": "^2.2.34",
+    "@types/lodash": "^4.14.36",
+    "@types/power-assert": "0.0.28",
+    "@types/power-assert-formatter": "0.0.27",
     "angular2-template-loader": "^0.5.0",
     "awesome-typescript-loader": "^2.2.1",
     "babel-plugin-espower": "^2.3.1",
@@ -89,7 +89,7 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.0",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.2",
+    "typescript": "^2.0.3",
     "webpack": "^1.13.2"
   }
 }
